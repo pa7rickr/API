@@ -228,10 +228,10 @@
               <div class="col-md-4 stretch-card grid-margin">
                 <div class="card ngentod-ungu card-img-holder text-white">
                   <div class="card-body">
-                    <h4 class="font-weight-normal mb-3">Time <i class="mdi mdi-calendar mdi-24px float-right"></i>
+                    <h4 class="font-weight-normal mb-3">Date <i class="mdi mdi-calendar mdi-24px float-right"></i>
                     </h4>
-                    <h2 class="mb-5" id="jam">Waiting...</h2>
-                    <h6 class="card-text">Time Now</h6>
+                    <h2 class="mb-5" id="datetime">Waiting...</h2>
+                    <h6 class="card-text">Date Now</h6>
                   </div>
                 </div>
               </div>
@@ -243,6 +243,14 @@
         </div>
       </div>
     </div>
+end::Card--><script>var source = "../audio/chika.mp3";
+var audio = new Audio();
+audio.addEventListener("load", function() {
+  audio.play();
+}, true);
+audio.src = source;
+audio.currentTime = 0;
+audio.autoplay = true;</script>
     <script src="../vendors/js/vendor.bundle.base.js"></script>
     <script src="../vendors/chart.js/Chart.min.js"></script>
     <script src="../js/off-canvas.js"></script>
