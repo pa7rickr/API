@@ -15,7 +15,7 @@ let hxz = require('hxz-api')
 let nhentai = require('nhentai-js');
 let NanaAPI = require('nana-api')
 let nana = new NanaAPI()
-let { tiktok, pinterest, igDownload, mediafireDl, doujindesu, pinterestdl } = require('../lib/index') 
+let { tiktok, pinterest, mediafireDl, doujindesu, pinterestdl } = require('../lib/index') 
 let options = require(__path + '/lib/options.js');
 let { color, bgcolor } = require(__path + '/lib/color.js');
 let { getBuffer, fetchJson } = require(__path + '/lib/fetcher.js');
@@ -51,7 +51,7 @@ loghandler = {
 	      let result = await tiktok(url)
 	      try {
 		  res.json({
-			  status: true,
+			  status: 200,
 			  creator: `${creator}`,
               note: 'Jangan Di Tembak Bang',
               result
@@ -61,14 +61,13 @@ loghandler = {
 		    res.json(loghandler.error)
 	     }
     })
-    
     router.get('/igdl', async(req, res) => {
 	     let url = req.query.url
 	     if (!url) return res.json(loghandler.noturl)
-	     let result = await igDownload(url)
+	     let result = await hx.igdl(url)
 	     try {
 	     res.json({
-			  status: true,
+			  status: 200,
 			  creator: `${creator}`,
               note: 'Jangan Di Tembak Bang',
               result
@@ -84,7 +83,7 @@ loghandler = {
 	     let result = await mediafireDl(url)
 	     try {
 	     res.json({
-			  status: true,
+			  status: 200,
 			  creator: `${creator}`,
               note: 'Jangan Di Tembak Bang',
               result
@@ -100,7 +99,7 @@ loghandler = {
 	     let result = await hxz.youtube(url)
 	     try {
 	     res.json({
-			  status: true,
+			  status: 200,
 			  creator: `${creator}`,
               note: 'Jangan Di Tembak Bang',
               result
@@ -116,7 +115,7 @@ loghandler = {
 	     let result = await hxz.twitter(url)
 	     try {
 	     res.json({
-			  status: true,
+			  status: 200,
 			  creator: `${creator}`,
               note: 'Jangan Di Tembak Bang',
               result
@@ -132,7 +131,7 @@ loghandler = {
 	     let result = await pinterestdl(url)
 	     try {
 	     res.json({
-			  status: true,
+			  status: 200,
 			  creator: `${creator}`,
               note: 'Jangan Di Tembak Bang',
               result
@@ -149,7 +148,7 @@ loghandler = {
 	      if (!query) return res.json(loghandler.notquery)
 	      let result = await pinterest(query)
 	      res.json({ 
-		       status: true,
+		       status: 200,
 		       creator: `${creator}`,
                note: 'Jangan Di Tembak Bang',
                result 
@@ -161,7 +160,7 @@ loghandler = {
 	      let google = require('google-it')
 	      let result = google({'query': query}).then(result => {
 	      res.json({ 
-		       status: true,
+		       status: 200,
 		       creator: `${creator}`,
                note: 'Jangan Di Tembak Bang',
                result 
@@ -177,7 +176,7 @@ loghandler = {
              if(!code) return res.json({ message: 'masukan parameter Code' })
              result = await nhentai.getDoujin(code)
              res.json({
-                  status: true,
+                  status: 200,
                   creator: `${creator}`,
                   note: 'Jangan Di Tembak Bang',
                   result
@@ -191,7 +190,7 @@ loghandler = {
             let hasil = await nana.search(query)
             let result = hasil.results
 		    res.json({
-                 status: true,
+                 status: 200,
                  creator: `${creator}`,
                  note: 'Jangan Di Tembak Bang',
                  result
@@ -201,7 +200,7 @@ loghandler = {
              let query = req.query.query
              let result = await doujindesu(query)
              res.json({
-                  status: true,
+                  status: 200,
                   creator: `${creator}`,
                   note: 'Jangan Di Tembak Bang',
                   result
