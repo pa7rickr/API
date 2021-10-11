@@ -64,7 +64,7 @@ loghandler = {
     router.get('/igdl', async(req, res) => {
 	     let url = req.query.url
 	     if (!url) return res.json(loghandler.noturl)
-	     let result = await hx.igdl(url)
+	     let result = await hxz.igdl(url)
 	     try {
 	     res.json({
 			  status: 200,
