@@ -1,8 +1,2 @@
-window.setTimeout("waktu()", 1000);
-    function waktu() {
-        var waktu = new Date();
-        setTimeout("waktu()", 1000);
-        const stringss = `${waktu.getHours()}:${waktu.getMinutes()}:${waktu.getSeconds()}`
-        document.getElementById("jam").textContent = stringss
-        
-        }
+var dt = new Date();
+ document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "." + (("0" + (dt.getMonth() + 1)).slice(-2)) + "." + (dt.getFullYear()) + " " + (("0" + dt.getHours()).slice(-2)) + ":" + (("0" + dt.getMinutes()).slice(-2));
